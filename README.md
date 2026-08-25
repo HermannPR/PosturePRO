@@ -78,15 +78,25 @@ This app provides educational information about posture. It is NOT a medical dev
 
 MIT (to be confirmed)
 
+## Screenshots
+
+![Landing](docs/landing.png)
+
+Landing page with the app value proposition for remote workers and students.
+
+![Posture analysis](docs/analysis.png)
+
+Posture check flow (intro state before camera capture) with session duration controls.
+
 ## Roadmap
 
 - [x] Project setup
-- [ ] MediaPipe integration
-- [ ] Core posture detection
-- [ ] Real-time feedback UI
-- [ ] Session tracking
+- [x] MediaPipe integration
+- [x] Core posture detection
+- [x] Real-time feedback UI
+- [x] Session tracking
+- [x] Educational content
 - [ ] Progress dashboard
 - [ ] Reminder system
-- [ ] Educational content
 - [ ] PWA capabilities
 - [ ] Freemium features
