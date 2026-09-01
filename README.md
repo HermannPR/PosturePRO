@@ -4,6 +4,10 @@
 
 A privacy-first web application that uses AI to analyze and provide feedback on posture issues for remote workers and students.
 
+## The Hard Part
+
+The privacy constraint is the whole point, and it's also the hard part. Users never upload a video, so I had to run real-time pose estimation entirely in the browser with MediaPipe Pose + TensorFlow.js — wrangling the model's frame budget so the camera stays smooth while landmarks stream through. The other half is turning skeletons into *interpretable* posture issues: the algorithms in `lib/posture` detect forward head posture, rounded shoulders, shoulder asymmetry, anterior pelvic tilt, slouching, and head tilt/rotation, then map each to specific exercises and ergonomic tips. Cues and session history persist locally, so there's a sense of progress without an account or a server.
+
 ## Features
 
 - **Real-time Posture Detection**: Uses MediaPipe Pose and TensorFlow.js for accurate pose estimation
@@ -78,7 +82,7 @@ This app provides educational information about posture. It is NOT a medical dev
 
 ## License
 
-MIT (to be confirmed)
+MIT — see [LICENSE](LICENSE).
 
 ## Screenshots
 
