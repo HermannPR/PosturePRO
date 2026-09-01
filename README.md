@@ -1,5 +1,7 @@
 # PosturePro - AI Posture Analysis App
 
+<p><img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" height="20" alt="Next.js"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" height="20" alt="TypeScript"> <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" height="20" alt="TensorFlow"> <img src="https://img.shields.io/badge/MediaPipe-0AC9B0?style=flat-square" height="20" alt="MediaPipe"></p>
+
 A privacy-first web application that uses AI to analyze and provide feedback on posture issues for remote workers and students.
 
 ## Features
