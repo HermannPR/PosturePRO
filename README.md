@@ -1,108 +1,50 @@
-# PosturePro - AI Posture Analysis App
+# PosturePro
 
-<p><img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" height="20" alt="Next.js"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" height="20" alt="TypeScript"> <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" height="20" alt="TensorFlow"> <img src="https://img.shields.io/badge/MediaPipe-0AC9B0?style=flat-square" height="20" alt="MediaPipe"></p>
+Aplicación web para revisar tu postura frente a la computadora. Está pensada para personas que trabajan en remoto y para estudiantes. Todo el análisis corre en tu navegador y el video nunca sale de tu dispositivo.
 
-A privacy-first web application that uses AI to analyze and provide feedback on posture issues for remote workers and students.
+Esta app todavía no tiene sitio publicado. Las capturas salen de una corrida local.
 
-## The Hard Part
+## Qué hace
 
-The privacy constraint is the whole point, and it's also the hard part. Users never upload a video, so I had to run real-time pose estimation entirely in the browser with MediaPipe Pose + TensorFlow.js — wrangling the model's frame budget so the camera stays smooth while landmarks stream through. The other half is turning skeletons into *interpretable* posture issues: the algorithms in `lib/posture` detect forward head posture, rounded shoulders, shoulder asymmetry, anterior pelvic tilt, slouching, and head tilt/rotation, then map each to specific exercises and ergonomic tips. Cues and session history persist locally, so there's a sense of progress without an account or a server.
+- Detecta la pose en tiempo real con MediaPipe Pose y TensorFlow.js.
+- Revisa seis problemas: cabeza adelantada, hombros redondeados, asimetría de hombros, inclinación pélvica anterior, encorvarse al sentarse e inclinación o giro de la cabeza.
+- Sugiere ejercicios y consejos de ergonomía para cada problema (`app/exercises`).
+- No pide registro y guarda el historial de sesiones solo en tu equipo.
+- Incluye páginas de privacidad y términos.
 
-## Features
+Los algoritmos de análisis están en `lib/posture/analyzer.ts` y `lib/posture/geometry.ts`.
 
-- **Real-time Posture Detection**: Uses MediaPipe Pose and TensorFlow.js for accurate pose estimation
-- **Privacy-First**: All processing happens client-side - video never leaves your device
-- **No Signup Required**: Instant access to posture checking
-- **Actionable Feedback**: Get specific exercises and ergonomic tips
-- **Progress Tracking**: Monitor improvements over time (optional account)
+## Tecnologías
 
-## Tech Stack
+Next.js 14, React 18, TypeScript, Tailwind CSS, TensorFlow.js y MediaPipe Pose.
 
-- **Frontend**: Next.js 14 + TypeScript + TailwindCSS
-- **ML/AI**: TensorFlow.js + MediaPipe Pose
-- **Deployment**: Vercel (planned)
-- **Analytics**: PostHog (privacy-preserving, planned)
+## Capturas
 
-## Getting Started
+![Inicio en escritorio](docs/capturas/escritorio.jpg)
 
-### Prerequisites
+![Inicio en móvil](docs/capturas/movil.jpg)
 
-- Node.js 18+ and npm
+## Cómo correrlo en local
 
-### Installation
+Necesitas Node.js 18 o más nuevo.
 
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the app.
+Abre http://localhost:3000. No usa variables de entorno.
 
-### Build
+## Pendiente
 
-```bash
-npm run build
-npm start
-```
+- Panel de progreso
+- Sistema de recordatorios
+- Soporte PWA
 
-## Project Structure
+## Aviso médico
 
-```
-/app
-  /check          - Posture checking page with camera
-  /dashboard      - User progress tracking (future)
-  /privacy        - Privacy policy
-  /terms          - Terms of service
-/components
-  /camera         - Camera and pose detection components
-  /ui             - Reusable UI components
-/lib
-  /posture        - Posture analysis algorithms
-  /storage        - Local storage utilities
-/types            - TypeScript type definitions
-```
+Esta app da información educativa sobre postura. No es un dispositivo médico y no diagnostica ni trata ninguna condición. Si tienes dolor constante, consulta a un profesional de la salud.
 
-## Detected Posture Issues
+## Licencia
 
-- Forward Head Posture (FHP)
-- Rounded Shoulders
-- Shoulder Asymmetry
-- Slouching/Hunched Sitting
-- Anterior Pelvic Tilt
-- Head Tilt/Rotation
-
-## Medical Disclaimer
-
-This app provides educational information about posture. It is NOT a medical device and does NOT diagnose or treat medical conditions. Always consult a healthcare professional for persistent pain or health concerns.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
-
-## Screenshots
-
-![Landing](docs/landing.png)
-
-Landing page with the app value proposition for remote workers and students.
-
-![Posture analysis](docs/analysis.png)
-
-Posture check flow (intro state before camera capture) with session duration controls.
-
-## Roadmap
-
-- [x] Project setup
-- [x] MediaPipe integration
-- [x] Core posture detection
-- [x] Real-time feedback UI
-- [x] Session tracking
-- [x] Educational content
-- [ ] Progress dashboard
-- [ ] Reminder system
-- [ ] PWA capabilities
-- [ ] Freemium features
+[MIT](LICENSE)
